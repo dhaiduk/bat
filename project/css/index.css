@@ -1,0 +1,911 @@
+:root {
+  --top_bar_height: 8%;
+  --intro_1_text_height: 87vh;
+  --info_height: 8vh;
+  --lets_go_height: 10vh;
+  --bottom-bar-height-findoutbutton: 6vh;
+  --intro_1_top_bar_grow: 0.1;
+  --intro_2_intro_text_grow: 6;
+  --intro_3_lets_go_grow: 2;
+  --intro_4_bottom_bar_grow: 2;
+  --buttons-size: 40px;
+
+}
+
+body,
+html {
+  user-select: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.canselect {
+  -webkit-touch-callout: all;
+  /* iOS Safari */
+  -webkit-user-select: all;
+  /* Safari */
+  -khtml-user-select: all;
+  /* Konqueror HTML */
+  -moz-user-select: all;
+  /* Old versions of Firefox */
+  -ms-user-select: all;
+  /* Internet Explorer/Edge */
+  user-select: all;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+::selection {
+  background-color: transparent;
+}
+
+::moz-selection {
+  background-color: transparent;
+}
+
+::webkit-selection {
+  background-color: transparent;
+}
+
+#iyp_loading {
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 101;
+  pointer-events: none;
+  background-color: #000000;
+  background-image: url(../assets/loading.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#loading_logo {
+  position: absolute;
+  margin-top: -5em;
+  margin-left: -5em;
+  top: 50%;
+  left: 50%;
+  height: 10em;
+  width: 10em;
+  transform: translate(-50%, -50%);
+  background-image: url(../assets/3rock_loading.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+#info {
+  position: absolute;
+  width: 90%;
+  height: 60%;
+  top: 30%;
+  right: 5%;
+  z-index: 11;
+  pointer-events: none;
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.info_1 {
+  background-image: url(../assets/ui/Standard_Mode_4_min_session.png);
+}
+
+.info_2 {
+  background-image: url(../assets/ui/Boost_Mode.png);
+}
+
+.info_3 {
+  background-image: url(../assets/ui/Intuitive_display.png);
+}
+
+.info_4 {
+  background-image: url(../assets/ui/OPTIMIZED_OPENING.png);
+}
+
+.info_5 {
+  background-image: url(../assets/ui/LASTING_CHARGE.png);
+}
+
+/*3.82*/
+#btnCloseInfo {
+  position: inherit;
+  top: 0;
+  right: 0px;
+  width: 25%;
+  height: 15%;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1016;
+}
+
+#videoInfo5 {
+  position: inherit;
+  top: -30px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1015;
+}
+
+#videoOutro {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1015;
+}
+
+#outro_button_1 {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  bottom: 10vh;
+  position: absolute;
+  z-index: 1016;
+  pointer-events: all;
+  display: block;
+}
+
+#outro_button_2 {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1016;
+  pointer-events: all;
+  display: block;
+}
+#low_power_warning {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 101;
+  pointer-events: none;
+  margin-top: 20px;
+  background-image: url(../assets/lowPower_warning.png);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#intro_background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  pointer-events: all;
+  background-image: url(../assets/ui/BAT-2023_Concept_Assets_V2_B_intro_bg.jpg);
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+#top_bar {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: var(--intro_1_top_bar_grow);
+}
+
+.top_bar_on {
+  background-image: url(../assets/ui/BAT-2023_Concept_Assets_V2_B_top_bar_logo.png);
+}
+
+#btn_back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: none;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1001;
+  width: var(--buttons-size);
+  height: var(--buttons-size);
+  padding: 20px;
+}
+
+#logo_white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../assets/ui/BAT-2023_Concept_Assets_V2_B_top_bar_logo_100x100.png);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1001;
+  width: var(--buttons-size);
+  height: var(--buttons-size);
+  padding: 0;
+}
+
+#btn_soundToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1001;
+  width: var(--buttons-size);
+  height: var(--buttons-size);
+  padding: 20px;
+}
+
+#btn_soundToggle.on {
+  background-image: none;
+}
+
+#btn_soundToggle.off {
+  background-image: none;
+}
+
+#btn_recenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../assets/recenter.png);
+  background-position: center top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1001;
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+}
+
+#intro_age_verification {
+  flex-direction: column;
+  z-index: 9;
+  pointer-events: all;
+  background-color: #ffffff;
+  display: none;
+  flex-grow: var(--intro_2_intro_text_grow);
+  margin: 15vh 4vw 10vh 4vw;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#intro_1_text {
+  z-index: 11;
+  pointer-events: all;
+  background-image: url(../assets/ui/Pronto_per_unesperienza_immersiva_.png);
+  background-position: bottom;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  display: none;
+  flex-grow: 4;
+}
+
+#lets_go {
+  z-index: 9;
+  pointer-events: all;
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  display: none;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.lets_go_on {
+  background-image: url(../assets/ui/BAT-2023_Concept_Assets_V3_B_lets_go.png);
+}
+
+#bottom_bar {
+  z-index: 10;
+  pointer-events: all;
+  background-image: url(../assets/ui/HyperX2_Logo_1.png);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  display: none;
+  flex-grow: 3;
+}
+
+#btn_restart {
+  position: inherit;
+  top: 0px;
+  right: 0px;
+  width: 25%;
+  height: 90%;
+  background-image: url(../assets/restart.png);
+  background-position: right center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1001;
+}
+
+
+#tap_to_place {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  pointer-events: all;
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+#take_action {
+  position: absolute;
+  width: 80%;
+  height: 10vh;
+  bottom: 6vh;
+  left: 10%;
+  z-index: 1004;
+  pointer-events: all;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.take_action_on {
+  background-image: url(../assets/ui/WWF_Assets_2023_B_V2_3_take_action.png);
+}
+
+#bottom_bar_outro {
+  width: 100vw;
+  height: var(--bottom-bar-height-findoutbutton);
+  left: 0px;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  pointer-events: all;
+  background-image: url(../assets/ui/WWF_Assets_2023_B_V2_outro_bottom.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+
+#speech_text {
+  width: 84vw;
+  height: 20vh;
+  left: 8vw;
+  bottom: 10vh;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.speech_text_1 {
+  background-image: url(../assets/ui/TEXT_01.png);
+}
+.speech_text_2 {
+  background-image: url(../assets/ui/TEXT_02.png);
+}
+.speech_text_3 {
+  background-image: url(../assets/ui/TEXT_03.png);
+}
+#notification_rotate {
+  width: 100vw;
+  height: 23.2vw;
+  left: 0px;
+  bottom: 10vw;
+  position: absolute;
+  z-index: 10;
+  pointer-events: all;
+  background-image: url(../assets/ui/notofications_zoom_2.png);
+  background-position: center;
+  background-size: 95%;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+
+#brandingBottom {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+  background-image: url(../assets/recenter.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  z-index: 1001;
+}
+
+#polaroidHolder {
+  width: 80vh;
+  height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#polaroidShare {
+  display: none;
+  position: absolute;
+  width: 47vw;
+  height: 45vh;
+  top: 50%;
+  left: 50vw;
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+@media (orientation: portrait) {
+
+  /*4.095*/
+  #polaroidImage {
+    position: inherit;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    box-shadow: 5px 10px 50px #ffffff;
+    pointer-events: all;
+    z-index: 1;
+  }
+
+  /*3.82*/
+  #btnClosePolaroid {
+    display: none;
+    position: inherit;
+    top: -10%;
+    right: 0px;
+    width: 50%;
+    height: 10%;
+    background-image: url(../assets/ui/Buttons-Close-04.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: all;
+    z-index: 1016;
+  }
+
+  /*4.29*/
+  #hold_to_save {
+    display: none;
+    position: inherit;
+    top: 75%;
+    left: 3%;
+    width: 95%;
+    height: 30%;
+    background-image: url(../assets/ui/Buttons-Tap&Hold-SM.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: all;
+    z-index: 1016;
+  }
+}
+
+.fullscreenVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+.introButton {
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  height: 15%;
+  pointer-events: all;
+  z-index: 1000;
+  display: none;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+input {
+  outline: none !important;
+  background: transparent;
+  border: none;
+}
+
+.introButton_submit {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 8%;
+  pointer-events: all;
+  z-index: 2;
+  display: none;
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
+.introButton_submit_selected {
+  background-size: 100%;
+}
+
+.bottomButton1 {
+  position: inherit;
+  width: 25vw;
+  left: 13vw;
+  height: 10vw;
+}
+
+.bottomButton2 {
+  position: inherit;
+  width: 22vw;
+  left: 39vw;
+  height: 10vw;
+}
+
+.bottomButton3 {
+  position: inherit;
+  width: 24vw;
+  left: 61vw;
+  height: 10vw;
+}
+
+.poweredby-img {
+  left: 80% !important;
+}
+
+#loadImage {
+  margin-top: -5em !important;
+  margin-left: -5em !important;
+  height: 10em !important;
+  width: 10em !important;
+}
+
+
+#outro {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  pointer-events: all;
+  display: none;
+}
+
+.bottomButton {
+  width: 33%;
+  float: left;
+  height: 70px;
+}
+
+#share_via_message {
+  position: absolute;
+  width: var(--share-via-message);
+  height: var(--share-via-message);
+  bottom: 7vw;
+  right: 5%;
+  z-index: 1015;
+  pointer-events: all;
+  background-image: url(../assets/ui/share-via-message.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+
+
+#ar_mode_takePhoto_button {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  bottom: 6vh;
+  right: 0;
+  background-image: url(../assets/ui/Camera.png);
+  background-position: center top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: all;
+  display: none;
+  z-index: 5;
+}
+
+#polaroidHolder {
+  width: 80vh;
+  height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#polaroidShare {
+  display: none;
+  position: absolute;
+  width: 47vw;
+  height: 45vh;
+  top: 50%;
+  left: 50vw;
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+@media (orientation: portrait) {
+
+  /*4.095*/
+  #polaroidImage {
+    position: inherit;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    box-shadow: 5px 10px 50px #ffffff;
+    pointer-events: all;
+    z-index: 1;
+  }
+
+  /*3.82*/
+  #btnClosePolaroid {
+    display: none;
+    position: inherit;
+    top: -10%;
+    right: 0px;
+    width: 50%;
+    height: 10%;
+    background-image: url(../assets/ui/Buttons-Close-04.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: all;
+    z-index: 1016;
+  }
+
+  /*4.29*/
+  #hold_to_save {
+    display: none;
+    position: inherit;
+    top: 90%;
+    left: 3%;
+    width: 95%;
+    height: 30%;
+    background-image: url(../assets/ui/Buttons-Tap&Hold-SM.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: all;
+    z-index: 1016;
+  }
+
+  /*4.095*/
+  #social {
+    position: inherit;
+    top: -16%;
+    left: 0px;
+    width: 100%;
+    height: 20%;
+    background-image: url(../assets/ui/Webuyanycar-2021_IYP_ConceptVisual_Game-Buttons_outro_social.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1016;
+  }
+}
+
+#frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+button{
+  background: transparent;
+  font-family: "Qatar2022-Medium", sans-serif;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button:focus {
+  outline:none;
+}
+
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 50%;
+}
+.navigation__button{
+  width: 32px;
+  height: 32px;
+  
+}
+
+
+/* dance filter */
+
+.filter-dance{
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  left: 0;
+  bottom: 70px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-dance{
+  margin: 0 20px 0 0;
+}
+
+.filter-dance:last-child{
+  margin: 0;
+}
+
+.filter-dance__button{
+  margin: 0 8px 0 0;
+}
+
+.filter-dance__button:last-child{
+  margin: 0;
+}
+
+.filter-dance__button__images{
+  height: 25px;
+  width: 25px;
+  /*
+  border: 3px solid #fff;
+  border-radius: 50%;
+  margin: 0 0 8px;*/
+}
+
+.filter-dance__button__text{
+  font-size: 12px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+.filter-dance__button.active.white .filter-dance__button__images{
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.filter-dance__button.active.pink .filter-dance__button__images{
+  border: 3px solid #DE173F;
+}
+
+.filter-dance__button.active.turquoise .filter-dance__button__images{
+  border: 3px solid #52B4A8;
+}
+
+.filter-dance__button.active.yellow .filter-dance__button__images{
+  border: 3px solid #F9B331;
+}
+
+.filter-dance__button.active.purple .filter-dance__button__images{
+  border: 3px solid #632175;
+}
+
+.filter-dance__button.no_active{
+  opacity: .5;
+}
+
+
+.find_out_more_bottom{
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  left: 0;
+  bottom: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.find_out_more_bottom__images{
+  height: 50px;
+  width: 250px;
+  /*
+  border: 3px solid #fff;
+  border-radius: 50%;
+  margin: 0 0 8px;*/
+}
+
+
+#ar_text{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  top:var(--top_bar_height);
+}
+
+.ar_text_1{
+  background-image: url(../assets/ui/Scegli_il_tuo_colore_preferito.png);
+}
+
+.ar_text_2{
+  background-image: url(../assets/ui/FAI_TAP_E_SCOPRI_TUTTE_LE_FUNZIONALITÀ.png);
+}
