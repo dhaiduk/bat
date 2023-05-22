@@ -163,27 +163,6 @@ html {
   z-index: 1015;
 }
 
-#outro_button_1 {
-  width: 100vw;
-  height: 10vh;
-  left: 0;
-  bottom: 10vh;
-  position: absolute;
-  z-index: 1016;
-  pointer-events: all;
-  display: block;
-}
-
-#outro_button_2 {
-  width: 100vw;
-  height: 10vh;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: 1016;
-  pointer-events: all;
-  display: block;
-}
 #low_power_warning {
   width: 100%;
   height: 100%;
@@ -653,6 +632,36 @@ input {
   z-index: 2;
   pointer-events: all;
   display: none;
+}
+
+#outro_button_1 {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  bottom: 10vh;
+  position: absolute;
+  z-index: 1016;
+  pointer-events: all;
+  display: block;
+  background-image: url(../assets/ui/Outro_buttons_1.png);
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+#outro_button_2 {
+  width: 100vw;
+  height: 10vh;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1016;
+  pointer-events: all;
+  display: block;
+  background-image: url(../assets/ui/Outro_buttons_2.png);
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
 }
 
 .bottomButton {
