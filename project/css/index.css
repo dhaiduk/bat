@@ -1,14 +1,14 @@
 :root {
-  --top_bar_height: 8%;
+  --top_bar_height: 10%;
   --intro_1_text_height: 87vh;
   --info_height: 8vh;
   --lets_go_height: 10vh;
   --bottom-bar-height-findoutbutton: 6vh;
-  --intro_1_top_bar_grow: 0.1;
+  --intro_1_top_bar_grow: 0.15;
   --intro_2_intro_text_grow: 6;
   --intro_3_lets_go_grow: 2;
   --intro_4_bottom_bar_grow: 2;
-  --buttons-size: 40px;
+  --buttons-size: 50px;
 
 }
 
