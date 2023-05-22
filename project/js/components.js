@@ -38,8 +38,8 @@ const changeColorComponent = {
     this.offset = 0
     this.textureSelected = false
     let currentLight = beginLight
-    let currentRoughness = 0.5
-    let currentMetalness = 0.5
+    let currentRoughness = 1.0
+    let currentMetalness = 1.0
 
     // These hex colors are used by the UI buttons and car
     // default: white, dark blue, orange, blue, custom texture
