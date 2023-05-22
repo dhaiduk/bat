@@ -14,11 +14,15 @@ var sfx_button_1, sfx_button_2, sfx_button_3;
 
 var lets_go_clicked = false, take_action_clicked = false;
 
- var hotSpot1Clicked = false
- var hotSpot2Clicked = false
- var hotSpot3Clicked = false
- var hotSpot4Clicked = false
- var hotSpot5Clicked = false
+
+if (localStorage.getItem("lets_go_clicked_once") === null) var lets_go_clicked_once = false; 
+  else var lets_go_clicked_once = localStorage.getItem("lets_go_clicked_once");
+
+var hotSpot1Clicked = false
+var hotSpot2Clicked = false
+var hotSpot3Clicked = false
+var hotSpot4Clicked = false
+var hotSpot5Clicked = false
 
 export function hotSpot1ClickedFunc() {
   hotSpot1Clicked = true
@@ -92,7 +96,7 @@ var checking8thwallSupport = () => {
     setTimeout(() => {
       location.href = 'https://www.discoverglo.com/it/it/discover-glo';
     }, 3000);
-}
+  }
 };
 
 window.XR8 ? checking8thwallSupport() : window.addEventListener('xrloaded', checking8thwallSupport)
@@ -359,6 +363,15 @@ $(document).ready(function () {
   $("#lets_go").click(() => {
 
     if (lets_go_clicked) return
+    if (lets_go_clicked_once == false) {
+      window.open(
+        "https://www.discoverglo.com/it/",
+        "_blank" // <- This is what makes it open in a new window.
+      );
+      lets_go_clicked_once = true;
+      localStorage.setItem("lets_go_clicked_once", "true");
+      return
+    }
     allowedToScan = true;
 
     lets_go_clicked = true;
@@ -410,10 +423,15 @@ $(document).ready(function () {
         document.getElementById("video").pause();
         document.getElementById("video").currentTime = 0;
         $("#iyp_loading").css("display", "none");
-        intro_age_verification();
+        console.log(localStorage.getItem("is_age_18"))
+        if (localStorage.getItem("is_age_18") === null) intro_age_verification();
+        if (localStorage.getItem ("is_age_18") === "false") intro_age_verification();
+        if (localStorage.getItem("lets_go_clicked_once") === null && localStorage.getItem ("is_age_18") === "true" ) intro();
+        if (localStorage.getItem("lets_go_clicked_once") === "true" ) intro();
+//|| localStorage.getItem("lets_go_clicked_once") === "true"
       }, 1000);
 
-
+      //localStorage.getItem("lets_go_clicked_once") ===null
     }
   };
 
@@ -482,12 +500,14 @@ $(document).ready(function () {
   $("#button_verification_18").click(function () {
     click_sound();
     intro();
+    localStorage.setItem("is_age_18", "true")
   });
 
   $("#button_verification_no_18").click(function () {
     click_sound();
     //intro();
     user_is_underage();
+    localStorage.setItem("is_age_18", "false")
   });
 
   document
@@ -683,7 +703,8 @@ $(document).ready(function () {
     document.getElementById("hot_spot5").setAttribute("visible", true);
     console.log(hotSpot1Clicked, hotSpot2Clicked, hotSpot3Clicked, hotSpot4Clicked, hotSpot5Clicked)
     if (hotSpot1Clicked && hotSpot2Clicked && hotSpot3Clicked && hotSpot4Clicked && hotSpot5Clicked) allHotSpotsClicked();
-    if (allHotSpotClicked) {finalFrame();
+    if (allHotSpotClicked) {
+      finalFrame();
       console.log(`removeEventListener("animation-finished"`)
       document.getElementById("glb").removeEventListener("animation-finished", foo, true)
     }
@@ -751,6 +772,7 @@ function intro_age_verification() {
 }
 
 function intro() {
+  $("#intro_background").css("display", "flex");
   $("#intro_age_verification").css("display", "none");
   //$("#top_bar").css("display", "flex");
   //$("#intro_background").css("display", "flex");
@@ -797,7 +819,7 @@ export function finalFrame() {
 function startAgain() {
 
   document.getElementById("initColorButton").click()
-  
+
 
   allHotSpotClicked = false
   hotSpot1Clicked = false
@@ -820,7 +842,7 @@ function startAgain() {
   document.getElementById("blackRedLight").setAttribute("visible", false);
   document.getElementById("khakiGreenLight").setAttribute("visible", false);
   document.getElementById("greenBlueLight").setAttribute("visible", false);
-  greenBlueLight
+
   if (lets_go_clicked) return
 
   lets_go_clicked = true;
