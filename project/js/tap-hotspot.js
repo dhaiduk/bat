@@ -49,6 +49,7 @@ const tapHotspotComponent = {
       document.getElementById("hot_spot3").setAttribute("visible", false);
       document.getElementById("hot_spot4").setAttribute("visible", false);
       document.getElementById("hot_spot5").setAttribute("visible", false);
+      document.getElementById("boost").setAttribute("visible", false);
     }
 
     const showHotSpots = (e) => {
@@ -88,8 +89,15 @@ const tapHotspotComponent = {
           hotSpot1ClickedFunc()
           setTimeout(() => {
             showInfo(1)
-          }, 190);
-          hideHotSpots();
+            document.getElementById("info").style.display = "block"
+            hideHotSpots();
+          }, 3000);
+          
+          document.getElementById("boost").setAttribute("visible", true)
+          vibrate()
+
+     
+          /*
           document.getElementById("glb").removeAttribute('animation-mixer')
           document.getElementById("glb").setAttribute('animation-mixer', {
             clip: animationList[1],
@@ -124,6 +132,7 @@ const tapHotspotComponent = {
             console.log((document.getElementById("horizontalRotation").object3D.rotation.y) * (180 / Math.PI) + " " +
               (document.getElementById("verticalRotation").object3D.rotation.x) * (180 / Math.PI))
           }, timerHotSpot1 + 50);
+          */
           woosh_sound();
           break;
         case "hot_spot2":
