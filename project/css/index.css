@@ -324,7 +324,6 @@ html {
   display: none;
   flex-grow: var(--intro_2_intro_text_grow);
   margin: 15vh 4vw 10vh 4vw;
-  display: none;
   align-items: center;
   justify-content: space-between;
 }
@@ -926,4 +925,37 @@ button:focus {
 
 .ar_text_2{
   background-image: url(../assets/ui/FAI_TAP_E_SCOPRI_TUTTE_LE_FUNZIONALITÀ.png);
+}
+
+
+#notification_8thwall_not_supported {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url(../assets/ui/BAT-2023_Concept_Assets_V2_B_intro_bg.jpg);
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  height: 100vh;
+  z-index: 1111;
+  color: white;
+}
+
+#notification_8thwall_not_supported_content {
+  flex-direction: column;
+  z-index: 9;
+  pointer-events: all;
+  background-image: url(../assets/ui/not_support.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-grow: var(--intro_2_intro_text_grow);
+  margin: 15vh 4vw 10vh 4vw;
+  align-items: center;
+  justify-content: space-between;
 }
