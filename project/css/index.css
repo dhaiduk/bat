@@ -890,7 +890,7 @@ button:focus {
 }
 
 .filter-dance__button.no_active{
-  opacity: .5;
+  opacity: 1.0;
 }
 
 
