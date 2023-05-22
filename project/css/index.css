@@ -216,6 +216,24 @@ html {
   align-items: space-between;
 }
 
+#user_is_underage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  pointer-events: all;
+  background-image: url(../assets/ui/user_is_underage.png);
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
 #top_bar {
   position: absolute;
   width: 100%;

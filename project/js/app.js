@@ -294,6 +294,15 @@ $(document).ready(function () {
     );
   });
 
+
+
+  $("#find_out_more_bottom").click(function () {
+    click_sound();
+    window.open(
+      "https://www.discoverglo.com/it/it/discover-glo​",
+      "_blank" // <- This is what makes it open in a new window.
+    );
+  })
   $("#outro_button_2").click(function () {
     click_sound();
     startAgain();
@@ -465,7 +474,8 @@ $(document).ready(function () {
 
   $("#button_verification_no_18").click(function () {
     click_sound();
-    intro();
+    //intro();
+    user_is_underage();
   });
 
   document
@@ -738,6 +748,10 @@ function intro() {
   $("#logo_white").css("display", "flex");
   $("#lets_go").css("display", "flex");
 
+}
+function user_is_underage() {
+  $("#intro_age_verification").css("display", "none");
+  $("#user_is_underage").css("display", "flex");
 }
 
 
