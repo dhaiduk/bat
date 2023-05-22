@@ -73,7 +73,13 @@ const tapHotspotComponent = {
       document.getElementById("videoInfo5").style.display = "none"
       //$("#info").css("display", "block");
       if (e < 5)
-        $("#info").addClass("info_" + e); else document.getElementById("videoInfo5").style.display = "block"
+        $("#info").addClass("info_" + e); else {
+          document.getElementById("videoInfo5").style.display = "block";
+          setTimeout(() => {
+            document.getElementById("videoInfo5").style.display = "none"
+            $("#info").addClass("info_" + e)
+          }, 11000);
+        }
     }
 
     const nextAnimation = (e) => {
