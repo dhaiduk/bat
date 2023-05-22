@@ -636,7 +636,7 @@ input {
 
 #outro_button_1 {
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   left: 0;
   bottom: 10vh;
   position: absolute;
@@ -653,7 +653,7 @@ input {
   width: 100vw;
   height: 10vh;
   left: 0;
-  bottom: 0;
+  bottom: 2vh;
   position: absolute;
   z-index: 1016;
   pointer-events: all;
