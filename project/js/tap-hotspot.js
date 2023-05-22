@@ -76,6 +76,7 @@ const tapHotspotComponent = {
     }
 
     const nextAnimation = (e) => {
+      document.getElementById("horizontalRotation").removeAttribute("custom-one-finger-rotate")
       e.preventDefault();
       console.log("click nextAnimation")
       clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
@@ -263,7 +264,7 @@ const tapHotspotComponent = {
 
       console.log(e.target.id)
 
-
+      document.getElementById("horizontalRotation").setAttribute("custom-one-finger-rotate","")
 
     }
     this.el.addEventListener("click", nextAnimation, true);

@@ -967,6 +967,12 @@ function initGlo() {
   document.getElementById("beginLight").setAttribute("visible", false);
   document.getElementById("blackRedLight").setAttribute("visible", true);
 
+  document.getElementById("hot_spot1").setAttribute("tap-hotspot", "");
+  document.getElementById("hot_spot2").setAttribute("tap-hotspot", "");
+  document.getElementById("hot_spot3").setAttribute("tap-hotspot", "");
+  document.getElementById("hot_spot4").setAttribute("tap-hotspot", "");
+  document.getElementById("hot_spot5").setAttribute("tap-hotspot", "");
+
   horizontalRotation.setAttribute("scale", "1 1 1");
 
   glb.setAttribute("animation-mixer", {
