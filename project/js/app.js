@@ -197,7 +197,6 @@ $(document).ready(function () {
 
 
       if (!this.onceTapped) {
-
         var verticalRotation = 0
         var timerverticalRotation = 500
         document.getElementById("verticalRotation").setAttribute("animation", {
@@ -466,7 +465,7 @@ $(document).ready(function () {
 
   $("#btn_soundToggle").click(function () {
     isMuted = !isMuted;
-    click_sound();
+    //click_sound();
     if (isMuted == true) {
 
       sfx_background.volume(0);
@@ -773,6 +772,7 @@ function intro_age_verification() {
 
 function intro() {
   $("#intro_background").css("display", "flex");
+  $("#top_bar").css("display", "flex");
   $("#intro_age_verification").css("display", "none");
   //$("#top_bar").css("display", "flex");
   //$("#intro_background").css("display", "flex");

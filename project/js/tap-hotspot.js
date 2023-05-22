@@ -77,7 +77,7 @@ const tapHotspotComponent = {
 
     const nextAnimation = (e) => {
       e.preventDefault();
-      console.log("click")
+      console.log("click nextAnimation")
       clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
       var currentTarget = e.target.id;
       click_sound();

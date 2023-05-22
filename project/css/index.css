@@ -263,9 +263,9 @@ html {
   align-items: center;
   justify-content: center;
   background-position: center;
-  background-size: contain;
+  background-size: 60%;
   background-repeat: no-repeat;
-  pointer-events: none;
+  pointer-events: all;
   z-index: 1001;
   width: var(--buttons-size);
   height: var(--buttons-size);
@@ -273,11 +273,11 @@ html {
 }
 
 #btn_soundToggle.on {
-  background-image: none;
+  background-image: url(../assets/audio_on.png);
 }
 
 #btn_soundToggle.off {
-  background-image: none;
+  background-image: url(../assets/audio_off.png);
 }
 
 #btn_recenter {
