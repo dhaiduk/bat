@@ -28,4 +28,4 @@ aws s3 sync . s3://3rockariyp.com/BAT_Info --exclude "*" --exclude ".git/*" --in
 aws cloudfront create-invalidation --distribution-id E14Q7VKPW1RTSE --paths "/BAT_Info*"
 
 nvm use 16.19.0  
- ./serve/bin/serve -d project
+./serve/bin/serve -d project

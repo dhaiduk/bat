@@ -13,8 +13,8 @@ import { targetVideoComponent } from "./target-video.js";
 var sfx_button_1, sfx_button_2, sfx_button_3;
 
 var lets_go_clicked = false, take_action_clicked = false;
-
-
+localStorage.removeItem("is_age_18");
+localStorage.removeItem("lets_go_clicked_once");
 if (localStorage.getItem("lets_go_clicked_once") === null) var lets_go_clicked_once = false; 
   else var lets_go_clicked_once = localStorage.getItem("lets_go_clicked_once");
 
@@ -362,6 +362,7 @@ $(document).ready(function () {
   $("#lets_go").click(() => {
 
     if (lets_go_clicked) return
+    /*
     if (lets_go_clicked_once == false) {
       window.open(
         "https://www.discoverglo.com/it/",
@@ -371,6 +372,7 @@ $(document).ready(function () {
       localStorage.setItem("lets_go_clicked_once", "true");
       return
     }
+    */
     allowedToScan = true;
 
     lets_go_clicked = true;
