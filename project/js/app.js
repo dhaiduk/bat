@@ -254,7 +254,7 @@ $(document).ready(function () {
     }
   }
   );
-
+/*
   AFRAME.registerComponent('custom-two-finger-rotate', {
     schema: {
       factor: { default: 6 },
@@ -275,7 +275,7 @@ $(document).ready(function () {
     },
   }
   );
-
+*/
   AFRAME.registerShader('chromakey', chromaKeyShader)
   AFRAME.registerComponent('target-video', targetVideoComponent)
 
