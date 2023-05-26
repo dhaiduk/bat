@@ -201,14 +201,14 @@ $(document).ready(function () {
 
   AFRAME.registerComponent("tap-hotspot", tapHotspotComponent);
 
-  AFRAME.registerComponent('custom-one-finger-rotate', {
+  AFRAME.registerComponent('custom_one_finger_rotate', {
     schema: {
       factor: { default: 6 },
     },
     init() {
       this.handleEvent = this.handleEvent.bind(this)
       this.el.sceneEl.addEventListener('onefingermove', this.handleEvent)
-      //this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
+      this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
       this.verticalRot = 0;
       this.yAxisRot = 0;
       this.onceTapped = false
@@ -220,9 +220,6 @@ $(document).ready(function () {
       console.log("onefingermove")
       clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
       this.verticalRot += (event.detail.positionChange.y * this.data.factor) * (180 / Math.PI)
-
-
-
       if (!this.onceTapped) {
         var verticalRotation = 0
         var timerverticalRotation = 500
@@ -251,15 +248,26 @@ $(document).ready(function () {
     },
     tick: function () {
       //console.log(document.getElementById("verticalRotation").getAttribute('rotation'))
-    }
+    },
+    qux: function (e) {
+      if (e)
+        this.el.sceneEl.addEventListener('onefingermove', this.handleEvent)
+      else
+        this.el.sceneEl.removeEventListener('onefingermove', this.handleEvent)
+    },
   }
   );
-/*
-  AFRAME.registerComponent('custom-two-finger-rotate', {
+
+  AFRAME.registerComponent('custom_pinch_scale', {
     schema: {
-      factor: { default: 6 },
+      min: { default: 0.33 },
+      max: { default: 3 },
+      scale: { default: 0 },  // If scale is set to zero here, the object's initial scale is used.
     },
     init() {
+      const s = this.data.scale
+      this.initialScale = (s && { x: s, y: s, z: s }) || this.el.object3D.scale.clone()
+      this.scaleFactor = 1
       this.handleEvent = this.handleEvent.bind(this)
       this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
       this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
@@ -268,14 +276,23 @@ $(document).ready(function () {
       this.el.sceneEl.removeEventListener('twofingermove', this.handleEvent)
     },
     handleEvent(event) {
+      this.scaleFactor *= 1 + event.detail.spreadChange / event.detail.startSpread
+      this.scaleFactor = Math.min(Math.max(this.scaleFactor, this.data.min), this.data.max)
 
-      console.log("twofingermove");
-      this.el.object3D.rotation.x += event.detail.positionChange.y * this.data.factor
-
+      this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x
+      this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y
+      this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z
     },
+    qux: function (e) {
+      if (e)
+        this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
+      else
+        this.el.sceneEl.removeEventListener('twofingermove', this.handleEvent)
+    },
+
   }
   );
-*/
+
   AFRAME.registerShader('chromakey', chromaKeyShader)
   AFRAME.registerComponent('target-video', targetVideoComponent)
 
@@ -891,7 +908,8 @@ function startAgain() {
 }
 
 export function sceneInitRun() {
-
+  document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(false);
+  document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(false);
   console.log("sceneInitRun")
   document.getElementById("video").play();
 
@@ -913,6 +931,8 @@ export function sceneInitRun() {
 
   setTimeout(() => {
     $("#speech_text").css("display", "none");
+    document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(true);
+    document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(true);
     initGlo();
   }, 14000);
 

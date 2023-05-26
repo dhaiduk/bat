@@ -192,7 +192,7 @@
 
 			<img id="customLoadingSpinner" src="assets/ui/glo_Logo_copy.png">
 
-			<a-asset-item id="glbModel" src="./assets/glb/GHX2_Device_AnimUpdate_my.glb"></a-asset-item>
+			<a-asset-item id="glbModel" src="./assets/glb/GHX2_Device_AnimUpdateBMy.glb"></a-asset-item>
 
 
 			<img id="surface_grid_tap_to_place" src="assets/ui/empty.png" />
@@ -264,7 +264,7 @@
 			</a-entity>
 
 			<a-entity id="verticalRotation" scale="0.05 0.05 0.05" position="0 0 -1" rotation="25 0 0">
-				<a-entity xrextras-pinch-scale custom-one-finger-rotate id="horizontalRotation" scale="1 1 1">
+				<a-entity custom_pinch_scale custom_one_finger_rotate id="horizontalRotation" scale="1 1 1">
 					<a-entity id="glb" gltf-model="#glbModel" visible="true" change-color scale="1 1 1"></a-entity>
 					<a-entity rotation="0 150 0">
 						<a-entity id="hot_spot1" position="0 1.9 2.3" visible="false" shadow="receive: false"
