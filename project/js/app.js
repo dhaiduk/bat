@@ -15,8 +15,8 @@ var sfx_button_1, sfx_button_2, sfx_button_3;
 var lets_go_clicked = false, take_action_clicked = false;
 localStorage.removeItem("is_age_18");
 localStorage.removeItem("lets_go_clicked_once");
-if (localStorage.getItem("lets_go_clicked_once") === null) var lets_go_clicked_once = false; 
-  else var lets_go_clicked_once = localStorage.getItem("lets_go_clicked_once");
+if (localStorage.getItem("lets_go_clicked_once") === null) var lets_go_clicked_once = false;
+else var lets_go_clicked_once = localStorage.getItem("lets_go_clicked_once");
 
 var hotSpot1Clicked = false
 var hotSpot2Clicked = false
@@ -48,6 +48,7 @@ var infoCounter = 0;
 var gameCamera;
 var tapToPlaceGrid;
 var infoShowingTimer;
+var isLowPowerModeChecked = false
 
 var validateState = false;
 var allHotSpotClicked = false
@@ -145,6 +146,32 @@ const onxrextrasloaded = () => {
 window.XRExtras ? onxrextrasloaded() : window.addEventListener('xrextrasloaded', onxrextrasloaded)
 
 $(document).ready(function () {
+
+
+  document.getElementById("video").addEventListener('suspend', () => {
+    // suspend invoked
+    // show play button
+    // iphone is in low power mode
+    if (isLowPowerModeChecked) return
+    isLowPowerModeChecked = true
+    console.log("iphone is in low power mode")
+    $('#loading_logo').css('display', 'none');
+    $('#low_power_warning').css('display', 'block');
+
+
+  });
+
+  document.getElementById("video").addEventListener('play', () => {
+    // video is played
+    // remove play button UI
+    // iphone is not in low power mode
+    if (isLowPowerModeChecked) return
+    isLowPowerModeChecked = true
+    console.log("iphone is not in low power mode")
+    $('#loading_logo').css('display', 'block');
+    $('#low_power_warning').css('display', 'none');
+  });
+  document.getElementById("video").play()
 
   // bitmaps cause texture issues on iOS this workaround prevents black textures and crashes
   const IS_IOS =
@@ -426,10 +453,10 @@ $(document).ready(function () {
         $("#iyp_loading").css("display", "none");
         console.log(localStorage.getItem("is_age_18"))
         if (localStorage.getItem("is_age_18") === null) intro_age_verification();
-        if (localStorage.getItem ("is_age_18") === "false") intro_age_verification();
-        if (localStorage.getItem("lets_go_clicked_once") === null && localStorage.getItem ("is_age_18") === "true" ) intro();
-        if (localStorage.getItem("lets_go_clicked_once") === "true" ) intro();
-//|| localStorage.getItem("lets_go_clicked_once") === "true"
+        if (localStorage.getItem("is_age_18") === "false") intro_age_verification();
+        if (localStorage.getItem("lets_go_clicked_once") === null && localStorage.getItem("is_age_18") === "true") intro();
+        if (localStorage.getItem("lets_go_clicked_once") === "true") intro();
+        //|| localStorage.getItem("lets_go_clicked_once") === "true"
       }, 1000);
 
       //localStorage.getItem("lets_go_clicked_once") ===null
