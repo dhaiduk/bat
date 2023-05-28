@@ -935,8 +935,8 @@ export function sceneInitRun() {
 
   setTimeout(() => {
     $("#speech_text").css("display", "none");
-    document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(true);
-    document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(true);
+    //document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(true);
+    //document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(true);
     initGlo();
   }, 14000);
 
@@ -1061,10 +1061,22 @@ function initGlo() {
         document.getElementById("glb").addEventListener("animation-finished", foo, true)
         document.getElementById("ar_text").removeClass = "ar_text_1";
         document.getElementById("ar_text").className = "ar_text_2";
+
+        document.getElementById("horizontalRotation").setAttribute("animation", {
+          'property': 'rotation',
+          'to': { x: 0, y: -150, z: 0 }, 'dur': 1000
+        });
+        setTimeout(() => {
+          document.getElementById("horizontalRotation").setAttribute("rotation", { x: 0, y: -150, z: 0 });
+          document.getElementById("horizontalRotation").removeAttribute("animation");
+
+        }, 1000);
+/*
         setTimeout(() => {
           document.getElementById("ar_text").style.display = "none";
           runFinalTimer();
         }, 3000);
+        */
       }, 1000);
 
     }, 1000);

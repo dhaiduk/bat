@@ -87,7 +87,7 @@ const tapHotspotComponent = {
     const nextAnimation = (e) => {
       document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(false);
       document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(false);
-      document.getElementById("horizontalRotation").removeAttribute("custom_one_finger_rotate")
+      //document.getElementById("horizontalRotation").removeAttribute("custom_one_finger_rotate")
       e.preventDefault();
       console.log("click nextAnimation")
       clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
@@ -291,4 +291,4 @@ const tapHotspotComponent = {
     this.el.addEventListener("click", nextAnimation, true);
   },
 };
-export { tapHotspotComponent };
+export { tapHotspotComponent};
