@@ -49,7 +49,7 @@ const tapHotspotComponent = {
       document.getElementById("hot_spot3").setAttribute("visible", false);
       document.getElementById("hot_spot4").setAttribute("visible", false);
       document.getElementById("hot_spot5").setAttribute("visible", false);
-      document.getElementById("boost").setAttribute("visible", false);
+      //document.getElementById("boost").setAttribute("visible", false);
     }
 
     const showHotSpots = (e) => {
@@ -101,60 +101,20 @@ const tapHotspotComponent = {
             showInfo(1)
             document.getElementById("info").style.display = "block"
             hideHotSpots();
-          }, 3000);
-          
-          document.getElementById("boost").setAttribute("visible", true)
+          }, 30);    
           vibrate()
-
-     
-          /*
-          document.getElementById("glb").removeAttribute('animation-mixer')
-          document.getElementById("glb").setAttribute('animation-mixer', {
-            clip: animationList[1],
-            loop: "once",
-            repetitions: "1",
-            timeScale: 1.0,
-            clampWhenFinished: true,
-          });
-
-          var rotationHotSpot1 = -350
-          var timerHotSpot1 = 5000
-          document.getElementById("horizontalRotation").setAttribute("animation", {
-            'property': 'rotation',
-            'to': { x: 0, y: rotationHotSpot1, z: 0 }, 'dur': timerHotSpot1
-          });
-          setTimeout(() => {
-            document.getElementById("horizontalRotation").setAttribute("rotation", { x: 0, y: rotationHotSpot1, z: 0 });
-            document.getElementById("horizontalRotation").removeAttribute("animation");
-
-          }, timerHotSpot1 + 50);
-
-          var verticalRotation = 40
-
-          document.getElementById("verticalRotation").setAttribute("animation", {
-            'property': 'rotation',
-            'to': { x: verticalRotation, y: 0, z: 0 }, 'dur': timerHotSpot1
-          });
-          setTimeout(() => {
-            document.getElementById("verticalRotation").setAttribute("rotation", { x: verticalRotation, y: 0, z: 0 });
-            document.getElementById("verticalRotation").removeAttribute("animation");
-
-            console.log((document.getElementById("horizontalRotation").object3D.rotation.y) * (180 / Math.PI) + " " +
-              (document.getElementById("verticalRotation").object3D.rotation.x) * (180 / Math.PI))
-          }, timerHotSpot1 + 50);
-          */
-          woosh_sound();
           break;
         case "hot_spot2":
           hotSpot2ClickedFunc()
-          hideHotSpots();
           vibrate()
+          document.getElementById("boost").setAttribute("visible", true)
+          hideHotSpots();
           setTimeout(() => {
             showInfo(2)
             document.getElementById("info").style.display = "block"
-
-          }, 30);
-          woosh_sound();
+            
+          }, 3000);
+          //woosh_sound();
           break;
 
         case "hot_spot3":

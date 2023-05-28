@@ -750,6 +750,7 @@ $(document).ready(function () {
     document.getElementById("hot_spot3").setAttribute("visible", true);
     document.getElementById("hot_spot4").setAttribute("visible", true);
     document.getElementById("hot_spot5").setAttribute("visible", true);
+    document.getElementById("boost").setAttribute("visible", false)
     console.log(hotSpot1Clicked, hotSpot2Clicked, hotSpot3Clicked, hotSpot4Clicked, hotSpot5Clicked)
     if (hotSpot1Clicked && hotSpot2Clicked && hotSpot3Clicked && hotSpot4Clicked && hotSpot5Clicked) allHotSpotsClicked();
     if (allHotSpotClicked) {

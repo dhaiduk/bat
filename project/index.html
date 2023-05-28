@@ -204,7 +204,7 @@
 				src="./assets/video/BAT_Giulia_Device-fade-V2_Chroma-Blue_ezgif.mp4">
 			</video>
 
-			<video id="videoBoost" muted crossOrigin="anonymous" playsinline preload="auto" muted loop="false"
+			<video id="videoBoost" muted autoplay crossOrigin="anonymous" playsinline preload="auto" muted loop="false"
 				src="./assets/video/Function_01-BOOST_V2-1.mp4">
 			</video>
 		</a-assets>
@@ -282,11 +282,6 @@
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1500; easing: easeInQuad;  dir: alternate; loop: true;"
 								position="0 0 -0.01">
-							</a-entity>
-							<a-entity id="boost" scale="5 5 5" shadow="receive: false" visible="false"
-								target-video="name: outside; video: #videoBoost; fade: 100"
-								material="shader: chromakey; src: #videoBoost; color: 0.0 0.0 0.0"
-								geometry="primitive: plane; width: 1.92; height: 1.08;">
 							</a-entity>
 						</a-entity>
 					</a-entity>
@@ -386,7 +381,11 @@
 							</a-entity>
 						</a-entity>
 					</a-entity>
-
+					<a-entity id="boost" scale="10 10 10"rotation="0 150 0" shadow="receive: false" visible="false"
+					target-video="name: outside; video: #videoBoost; fade: 100"
+					material="shader: chromakey; side: double; src: #videoBoost; color: 0.0 0.0 0.0"
+					geometry="primitive: plane; width: 1.92; height: 1.08;">
+				</a-entity>
 				</a-entity>
 			</a-entity>
 
