@@ -207,7 +207,7 @@ $(document).ready(function () {
     },
     init() {
       this.handleEvent = this.handleEvent.bind(this)
-      this.el.sceneEl.addEventListener('onefingermove', this.handleEvent)
+      //this.el.sceneEl.addEventListener('onefingermove', this.handleEvent)
       this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
       this.verticalRot = 0;
       this.yAxisRot = 0;
@@ -269,7 +269,7 @@ $(document).ready(function () {
       this.initialScale = (s && { x: s, y: s, z: s }) || this.el.object3D.scale.clone()
       this.scaleFactor = 1
       this.handleEvent = this.handleEvent.bind(this)
-      this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
+      //this.el.sceneEl.addEventListener('twofingermove', this.handleEvent)
       this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
     },
     remove() {
