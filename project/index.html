@@ -54,7 +54,8 @@
 
 	<div id="iyp_loading">
 		<div id="loading_logo" class='animated pulse'></div>
-		<div id="low_power_warning" ></div>
+	</div>
+	<div id="low_power_warning"></div>
 	</div>
 	<div id='top_bar'>
 		<div id='btn_back'></div>
@@ -175,16 +176,10 @@
 		<div id="notification_8thwall_not_supported_content"></div>
 	</div>
 
-	<a-scene id='main_scene' 
-		xrextras-gesture-detector 
-		xrextras-almost-there
-		xrextras-loading="loadImage: #customLoadingSpinner; loadAnimation: pulse;" 
-		xrextras-runtime-error
-		xrextras-pause-on-hidden 
-		renderer="colorManagement: true;" 
-		xrweb="allowedDevices: mobile;"
-		vr-mode-ui="enabled: false" 
-		light="defaultLightsEnabled: false">
+	<a-scene id='main_scene' xrextras-gesture-detector xrextras-almost-there
+		xrextras-loading="loadImage: #customLoadingSpinner; loadAnimation: pulse;" xrextras-runtime-error
+		xrextras-pause-on-hidden renderer="colorManagement: true;" xrweb="allowedDevices: mobile;"
+		vr-mode-ui="enabled: false" light="defaultLightsEnabled: false">
 
 		<a-assets>
 
@@ -209,7 +204,7 @@
 				src="./assets/video/BAT_Giulia_Device-fade-V2_Chroma-Blue_ezgif.mp4">
 			</video>
 
-			<video id="videoBoost" muted crossOrigin="anonymous" playsinline preload="auto" muted autoplay loop="true"
+			<video id="videoBoost" muted crossOrigin="anonymous" playsinline preload="auto" muted loop="false"
 				src="./assets/video/Function_01-BOOST_V2-1.mp4">
 			</video>
 		</a-assets>
@@ -263,43 +258,14 @@
 				<a-light type="directional" color="white" position="5 -5 5" intensity="0.06" target="#glb"></a-light>
 			</a-entity>
 
-			<a-entity id="verticalRotation" scale="0.05 0.05 0.05" position="0 0 -1" rotation="25 0 0">
+			<a-entity id="verticalRotation" scale="0.06 0.06 0.06" position="0 0 -1" rotation="25 0 0">
 				<a-entity custom_pinch_scale custom_one_finger_rotate id="horizontalRotation" scale="1 1 1">
 					<a-entity id="glb" gltf-model="#glbModel" visible="true" change-color scale="1 1 1"></a-entity>
 					<a-entity rotation="0 150 0">
-						<a-entity id="hot_spot1" position="0 1.9 2.3" visible="false" shadow="receive: false"
+						<a-entity id="hot_spot1" position="0 3.1 2.3" visible="false" shadow="receive: false"
 							geometry="primitive: sphere; radius: 0.6"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2"  class="cantap" tap-hotspott>
-							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
-							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
-								material="shader: flat; color: white"
-								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 500; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
-							</a-entity>
-							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
-								material="shader: flat; color: white"
-								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1000; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
-							</a-entity>
-							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
-								material="shader: flat; color: white"
-								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1500; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
-							</a-entity>
-							<a-entity id="boost" scale="5 5 5" shadow="receive: false" visible="false"
-							target-video="name: outside; video: #videoBoost; fade: 100"
-							material="shader: chromakey; src: #videoBoost; color: 0.0 0.0 0.0"
-							geometry="primitive: plane; width: 1.92; height: 1.08;">
-						</a-entity>
-						</a-entity>
-					</a-entity>
-					<a-entity rotation="0 150 0">
-						<a-entity id="hot_spot2" position="0 3.1 2.3" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.6"
-							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2"  class="cantap" tap-hotspott>
+							scale="1.2 1.2 1.2" class="cantap" tap-hotspott>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
 								position="0 0 -0.01"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
@@ -319,11 +285,40 @@
 							</a-entity>
 						</a-entity>
 					</a-entity>
+					<a-entity rotation="0 150 0">
+						<a-entity id="hot_spot2" position="0 1.9 2.3" visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.6"
+							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
+							scale="1.2 1.2 1.2" class="cantap" tap-hotspott>
+							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
+								position="0 0 -0.01"></a-entity>
+							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
+								material="shader: flat; color: white"
+								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 500; easing: easeInQuad;  dir: alternate; loop: true;"
+								position="0 0 -0.01">
+							</a-entity>
+							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
+								material="shader: flat; color: white"
+								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1000; easing: easeInQuad;  dir: alternate; loop: true;"
+								position="0 0 -0.01">
+							</a-entity>
+							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
+								material="shader: flat; color: white"
+								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1500; easing: easeInQuad;  dir: alternate; loop: true;"
+								position="0 0 -0.01">
+							</a-entity>
+							<a-entity id="boost" scale="5 5 5" shadow="receive: false" visible="false"
+								target-video="name: outside; video: #videoBoost; fade: 100"
+								material="shader: chromakey; src: #videoBoost; color: 0.0 0.0 0.0"
+								geometry="primitive: plane; width: 1.92; height: 1.08;">
+							</a-entity>
+						</a-entity>
+					</a-entity>
 					<a-entity rotation="0 0 0">
 						<a-entity id="hot_spot3" position="0.6 4.01 -0.95" visible="false" shadow="receive: false"
 							geometry="primitive: sphere; radius: 0.6"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2"  class="cantap" tap-hotspott rotation="-90 0 0 ">
+							scale="1.2 1.2 1.2" class="cantap" tap-hotspott rotation="-90 0 0 ">
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
 								position="0 0 -0.01"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
@@ -347,7 +342,7 @@
 						<a-entity id="hot_spot4" position="0 3.5 2.3" visible="false" shadow="receive: false"
 							geometry="primitive: sphere; radius: 0.6"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2"  class="cantap" tap-hotspott>
+							scale="1.2 1.2 1.2" class="cantap" tap-hotspott>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
 								position="0 0 -0.01"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"

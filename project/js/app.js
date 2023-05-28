@@ -155,7 +155,7 @@ $(document).ready(function () {
     if (isLowPowerModeChecked) return
     isLowPowerModeChecked = true
     console.log("iphone is in low power mode")
-    $('#loading_logo').css('display', 'none');
+
     $('#low_power_warning').css('display', 'block');
 
 
@@ -168,7 +168,7 @@ $(document).ready(function () {
     if (isLowPowerModeChecked) return
     isLowPowerModeChecked = true
     console.log("iphone is not in low power mode")
-    $('#loading_logo').css('display', 'block');
+
     $('#low_power_warning').css('display', 'none');
   });
   document.getElementById("video").play()
@@ -344,6 +344,9 @@ $(document).ready(function () {
     loop: false,
     rate: 0.1
   });
+  $("#low_power_warning").click(function () {
+    $("#low_power_warning").css("display", "none");
+  })
 
   $("#outro_button_1").click(function () {
     click_sound();
@@ -468,6 +471,7 @@ $(document).ready(function () {
         document.getElementById("video").pause();
         document.getElementById("video").currentTime = 0;
         $("#iyp_loading").css("display", "none");
+        $("#low_power_warning").css("display", "none");
         console.log(localStorage.getItem("is_age_18"))
         if (localStorage.getItem("is_age_18") === null) intro_age_verification();
         if (localStorage.getItem("is_age_18") === "false") intro_age_verification();
