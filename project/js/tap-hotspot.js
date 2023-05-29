@@ -85,11 +85,13 @@ const tapHotspotComponent = {
     }
 
     const nextAnimation = (e) => {
+      e.preventDefault();
+      document.getElementById("ar_text").style.display = "none"
       console.log(e)
       document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(false);
       document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(false);
       //document.getElementById("horizontalRotation").removeAttribute("custom_one_finger_rotate")
-      e.preventDefault();
+
       console.log("click nextAnimation")
       clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
       var currentTarget = e.target.id;
