@@ -87,6 +87,13 @@ const tapHotspotComponent = {
     const nextAnimation = (e) => {
       e.preventDefault();
       document.getElementById("ar_text").style.display = "none"
+      
+      document.getElementById("glb").setAttribute("scale", {
+        x: document.getElementById("glb").getAttribute("scale").x + 0.001,
+        y: document.getElementById("glb").getAttribute("scale").y + 0.001,
+        z: document.getElementById("glb").getAttribute("scale").z + 0.001
+      })
+      console.log(document.getElementById("glb").getAttribute("scale"));
       console.log(e)
       //document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(false);
       //document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(false);
@@ -187,7 +194,7 @@ const tapHotspotComponent = {
             'to': { x: 0, y: rotationHotSpot4, z: 0 }, 'dur': timerHotSpot4
           });
           setTimeout(() => {
-            document.getElementById("").setAttribute("rotation", { x: 0, y: rotationHotSpot4, z: 0 });
+            document.getElementById("glb").setAttribute("rotation", { x: 0, y: rotationHotSpot4, z: 0 });
             document.getElementById("glb").removeAttribute("animation");
           }, timerHotSpot4 + 50);
 
