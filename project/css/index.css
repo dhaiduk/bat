@@ -636,6 +636,21 @@ input {
   display: none;
 }
 
+#outro_text {
+  display: block;
+  position: absolute;
+  top: var(--top_bar_height);
+  left: 0;
+  width: 100vw;
+  height: 25vh;
+  z-index: 1016;
+  pointer-events: all;
+  background-image: url(../assets/ui/Ora_sei_pronto_a_provare_la_migliore_alternativa_alla_sigaretta.png);
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
 #outro_button_1 {
   width: 100vw;
   height: 12vh;

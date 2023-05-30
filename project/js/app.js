@@ -242,7 +242,7 @@ $(document).ready(function () {
 
       this.onceTapped = true
 
-      console.log((document.getElementById("horizontalRotation").object3D.rotation.y) * (180 / Math.PI) + " " +
+      console.log((document.getElementById("glb").object3D.rotation.y) * (180 / Math.PI) + " " +
         (document.getElementById("verticalRotation").object3D.rotation.x) * (180 / Math.PI))
 
     },
@@ -299,7 +299,7 @@ $(document).ready(function () {
   scene = document.querySelector("#main_scene")
   man = document.getElementById("man");
   glb = document.getElementById("glb");
-  horizontalRotation = document.getElementById("horizontalRotation");
+  horizontalRotation = document.getElementById("glb");
   verticalRotation = document.getElementById("verticalRotation");
 
 
@@ -860,7 +860,7 @@ export function finalFrame() {
   $("#bottom_bar").css("display", "none");
   $("#bottom_bar_outro").css("display", "none");
   $("#find_out_more_bottom").css("display", "none");
-  $("#logo_white").css("display", "none");
+  //$("#logo_white").css("display", "none");
 
 
   $("#outro").css("display", "block");
@@ -936,8 +936,8 @@ export function sceneInitRun() {
 
   setTimeout(() => {
     $("#speech_text").css("display", "none");
-    //document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(true);
-    //document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(true);
+    document.querySelector('[custom_one_finger_rotate]').components.custom_one_finger_rotate.qux(true);
+    document.querySelector('[custom_pinch_scale]').components.custom_pinch_scale.qux(true);
     initGlo();
   }, 14000);
 
@@ -1040,12 +1040,16 @@ function initGlo() {
 
 
   setTimeout(() => {
-
+    document.getElementById("hot_spot1").setAttribute("visible", true);
+    document.getElementById("hot_spot2").setAttribute("visible", true);      
+    document.getElementById("hot_spot3").setAttribute("visible", true);
+    document.getElementById("hot_spot4").setAttribute("visible", true);
+    document.getElementById("hot_spot5").setAttribute("visible", true);
     horizontalRotation.setAttribute("scale", "1 1 1");
 
     document.getElementById("verticalRotation").setAttribute("animation", {
       'property': 'rotation',
-      'to': { x: 0, y: 0, z: 0 }, 'dur': 900
+      'to': { x: 0, y: 0, z: 0 }, 'dur': 400
     });
     setTimeout(() => {
       document.getElementById("verticalRotation").setAttribute("rotation", { x: 0, y: 0, z: 0 });
@@ -1053,36 +1057,32 @@ function initGlo() {
       setTimeout(() => {
         document.getElementById("verticalRotation").removeAttribute("animation");
 
-        document.getElementById("hot_spot1").setAttribute("visible", true);
-        document.getElementById("hot_spot2").setAttribute("visible", true);
-        document.getElementById("hot_spot3").setAttribute("visible", true);
-        document.getElementById("hot_spot4").setAttribute("visible", true);
-        document.getElementById("hot_spot5").setAttribute("visible", true);
+
 
         document.getElementById("glb").addEventListener("animation-finished", foo, true)
         document.getElementById("ar_text").removeClass = "ar_text_1";
         document.getElementById("ar_text").className = "ar_text_2";
 
-        document.getElementById("horizontalRotation").setAttribute("animation", {
+        horizontalRotation.setAttribute("animation", {
           'property': 'rotation',
-          'to': { x: 0, y: -150, z: 0 }, 'dur': 1000
+          'to': { x: 0, y: -150, z: 0 }, 'dur': 400
         });
         setTimeout(() => {
-          document.getElementById("horizontalRotation").setAttribute("rotation", { x: 0, y: -150, z: 0 });
-          document.getElementById("horizontalRotation").removeAttribute("animation");
+          horizontalRotation.setAttribute("rotation", { x: 0, y: -150, z: 0 });
+          horizontalRotation.removeAttribute("animation");
 
-        }, 1000);
+        }, 500);
 /*
         setTimeout(() => {
           document.getElementById("ar_text").style.display = "none";
           runFinalTimer();
         }, 3000);
         */
-      }, 1000);
+      }, 500);
 
-    }, 1000);
+    }, 500);
 
-  }, 2050);
+  }, 550);
 
   document.getElementById("filter-dance").style.display = "flex"
   document.getElementById("find_out_more_bottom").style.display = "flex"

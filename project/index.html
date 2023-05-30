@@ -119,6 +119,7 @@
 		<video id="videoOutro" muted crossOrigin="anonymous" playsinline preload="auto" muted autoplay loop="true"
 			src="./assets/video/GIF_Avatar_clean_V2_H.264.mp4">
 		</video>
+		<div id='outro_text'></div>
 		<div id="outro_button_1"></div>
 		<div id="outro_button_2"></div>
 	</div>
@@ -259,133 +260,122 @@
 			</a-entity>
 
 			<a-entity id="verticalRotation" scale="0.06 0.06 0.06" position="0 0 -1" rotation="25 0 0">
-				<a-entity custom_pinch_scale custom_one_finger_rotate id="horizontalRotation" scale="1 1 1">
-					<a-entity id="glb" gltf-model="#glbModel" visible="true" change-color scale="1 1 1"></a-entity>
-					<a-entity rotation="0 150 0">
-						<a-entity id="hot_spot1" position="0 1.9 2.3" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.5"
+				<a-entity custom_pinch_scale custom_one_finger_rotate id="glb" gltf-model="#glbModel" visible="true" change-color scale="1 1 1">
+						<a-entity id="hot_spot1" position="1.22 1.8 -2.1" rotation = "0 150 0" visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.3"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2" class="cantap" tap-hotspot>
+							scale="1.6 1.6 1.6" class="cantap" tap-hotspot>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
+								position="0 0 -0.09"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 500; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1000; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1500; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
-						</a-entity>
-					</a-entity>
-					<a-entity rotation="0 150 0">
-						<a-entity id="hot_spot2" position="0 3.15 2.3" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.5"
+						</a-entity>		
+						<a-entity id="hot_spot2" position="1.22 3.15 -2.1" rotation = "0 150 0" visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.3"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2" class="cantap" tap-hotspot>
+							scale="1.6 1.6 1.6" class="cantap" tap-hotspot>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
+								position="0 0 -0.09"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 550; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1100; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1650; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 						</a-entity>
-					</a-entity>
-					<a-entity rotation="0 0 0">
-						<a-entity id="hot_spot3" position="0.6 4.01 -0.95" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.5"
+						<a-entity id="hot_spot3" position="0.6 4.2 -0.95" visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.3"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2" class="cantap" tap-hotspot rotation="-90 0 0 ">
+							scale="1.6 1.6 1.6" class="cantap" tap-hotspot rotation="-90 0 0 ">
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
+								position="0 0 -0.09"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 600; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1400; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1800; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 						</a-entity>
-					</a-entity>
-					<a-entity rotation="0 -45 0">
-						<a-entity id="hot_spot4" position="0 3.5 2.3" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.5"
+						<a-entity id="hot_spot4" position="-1.75 3.6 1.55" rotation = "0 -65 0" visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.3"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2" class="cantap" tap-hotspot>
+							scale="1.6 1.6 1.6" class="cantap" tap-hotspot>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
+								position="0 0 -0.09"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 650; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1300; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 1950; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 						</a-entity>
-					</a-entity>
-					<a-entity rotation="0 150 0">
-						<a-entity id="hot_spot5" position="0 -3.0 2.3" visible="false" shadow="receive: false"
-							geometry="primitive: sphere; radius: 0.5"
+						<a-entity id="hot_spot5" position="1.22 -3.0 -2.1" rotation = "0 150 0"visible="false" shadow="receive: false"
+							geometry="primitive: sphere; radius: 0.3"
 							material="src: #surface_grid_tap_to_place; transparent: true; depthWrite: false; depthTest: true"
-							scale="1.2 1.2 1.2" class="cantap" tap-hotspot>
+							scale="1.6 1.6 1.6" class="cantap" tap-hotspot>
 							<a-entity geometry="primitive: circle; radius: 0.1" material="shader: flat; color: white"
-								position="0 0 -0.01"></a-entity>
+								position="0 0 -0.09"></a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.125; radius-outer: 0.15;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 700; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.175; radius-outer: 0.2;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.1; dur: 1400; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 							<a-entity geometry="primitive: ring; radius-inner: 0.225; radius-outer: 0.232;"
 								material="shader: flat; color: white"
 								animation="property: material.opacity; from: 1.0; to: 0.0; dur: 2100; easing: easeInQuad;  dir: alternate; loop: true;"
-								position="0 0 -0.01">
+								position="0 0 -0.09">
 							</a-entity>
 						</a-entity>
-					</a-entity>
-					<a-entity id="boost" scale="10 10 10"rotation="0 150 0" shadow="receive: false" visible="false"
-					target-video="name: outside; video: #videoBoost; fade: 100"
-					material="shader: chromakey; side: double; src: #videoBoost; color: 0.0 0.0 0.0"
-					geometry="primitive: plane; width: 1.92; height: 1.08;">
-				</a-entity>
+						<a-entity id="boost" scale="10 10 10"rotation="0 150 0" shadow="receive: false" visible="false"
+							target-video="name: outside; video: #videoBoost; fade: 100"
+							material="shader: chromakey; side: double; src: #videoBoost; color: 0.0 0.0 0.0"
+							geometry="primitive: plane; width: 1.92; height: 1.08;">
+						</a-entity>
 				</a-entity>
 			</a-entity>
 
