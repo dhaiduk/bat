@@ -229,16 +229,20 @@ $(document).ready(function () {
         });
         setTimeout(() => {
           document.getElementById("verticalRotation").setAttribute("rotation", { x: verticalRotation, y: 0, z: 0 });
+          document.getElementById("verticalRotation2").setAttribute("rotation", { x: verticalRotation, y: 0, z: 0 });
           document.getElementById("verticalRotation").removeAttribute("animation");
         }, timerverticalRotation + 50);
 
       }
-      else document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 })
+      else {document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 });
+            document.getElementById("verticalRotation2").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 });
+          }
 
 
       //document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 })
       //document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 })
       this.el.object3D.rotation.y += (event.detail.positionChange.x * this.data.factor) % (2 * Math.PI)
+      document.getElementById("glb2").object3D.rotation.y += (event.detail.positionChange.x * this.data.factor) % (2 * Math.PI)
 
       this.onceTapped = true
 
@@ -282,6 +286,10 @@ $(document).ready(function () {
       this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x
       this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y
       this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z
+
+      document.getElementById("glb2").object3D.scale.x = this.scaleFactor * this.initialScale.x
+      document.getElementById("glb2").object3D.scale.y = this.scaleFactor * this.initialScale.y
+      document.getElementById("glb2").object3D.scale.z = this.scaleFactor * this.initialScale.z
     },
     qux: function (e) {
       if (e)
@@ -884,6 +892,7 @@ function startAgain() {
   document.getElementById("video").currentTime = 0;
 
   horizontalRotation.setAttribute("scale", "0.0001 0.0001 0.0001");
+  document.getElementById("glb2").setAttribute("visible", false);
 
   document.getElementById("beginLight").setAttribute("visible", true);
   document.getElementById("orangeLight").setAttribute("visible", false);
@@ -1040,6 +1049,7 @@ function initGlo() {
 
 
   setTimeout(() => {
+    document.getElementById("glb2").setAttribute("visible", true);
     document.getElementById("hot_spot1").setAttribute("visible", true);
     document.getElementById("hot_spot2").setAttribute("visible", true);      
     document.getElementById("hot_spot3").setAttribute("visible", true);
@@ -1051,12 +1061,17 @@ function initGlo() {
       'property': 'rotation',
       'to': { x: 0, y: 0, z: 0 }, 'dur': 400
     });
+    document.getElementById("verticalRotation2").setAttribute("animation", {
+      'property': 'rotation',
+      'to': { x: 0, y: 0, z: 0 }, 'dur': 400
+    });
     setTimeout(() => {
       document.getElementById("verticalRotation").setAttribute("rotation", { x: 0, y: 0, z: 0 });
+      document.getElementById("verticalRotation2").setAttribute("rotation", { x: 0, y: 0, z: 0 });
 
       setTimeout(() => {
         document.getElementById("verticalRotation").removeAttribute("animation");
-
+        document.getElementById("verticalRotation2").removeAttribute("animation");
 
 
         document.getElementById("glb").addEventListener("animation-finished", foo, true)
@@ -1067,10 +1082,15 @@ function initGlo() {
           'property': 'rotation',
           'to': { x: 0, y: -150, z: 0 }, 'dur': 400
         });
+        document.getElementById("glb2").setAttribute("animation", {
+          'property': 'rotation',
+          'to': { x: 0, y: -150, z: 0 }, 'dur': 400
+        });
         setTimeout(() => {
           horizontalRotation.setAttribute("rotation", { x: 0, y: -150, z: 0 });
           horizontalRotation.removeAttribute("animation");
-
+          document.getElementById("glb2").setAttribute("rotation", { x: 0, y: -150, z: 0 });
+          document.getElementById("glb2").removeAttribute("animation");
         }, 500);
 /*
         setTimeout(() => {

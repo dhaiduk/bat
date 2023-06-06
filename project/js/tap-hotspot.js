@@ -151,6 +151,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("glb").setAttribute("rotation", { x: 0, y: rotationHotSpot3, z: 0 });
+            document.getElementById("glb2").setAttribute("rotation", { x: 0, y: rotationHotSpot3, z: 0 });
             document.getElementById("glb").removeAttribute("animation");
 
           }, timerHotSpot3 + 50);
@@ -163,6 +164,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("verticalRotation").setAttribute("rotation", { x: verticalRotation3, y: 0, z: 0 });
+            document.getElementById("verticalRotation2").setAttribute("rotation", { x: verticalRotation3, y: 0, z: 0 });
             document.getElementById("verticalRotation").removeAttribute("animation");
 
             console.log((document.getElementById("glb").object3D.rotation.y) * (180 / Math.PI) + " " +
@@ -195,6 +197,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("glb").setAttribute("rotation", { x: 0, y: rotationHotSpot4, z: 0 });
+            document.getElementById("glb2").setAttribute("rotation", { x: 0, y: rotationHotSpot4, z: 0 });
             document.getElementById("glb").removeAttribute("animation");
           }, timerHotSpot4 + 50);
 
@@ -206,6 +209,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("verticalRotation").setAttribute("rotation", verticalRotation4 + " 0 0");
+            document.getElementById("verticalRotation2").setAttribute("rotation", verticalRotation4 + " 0 0");
             document.getElementById("verticalRotation").removeAttribute("animation");
           }, timerHotSpot4 + 50);
           woosh_sound();
@@ -232,6 +236,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("glb").setAttribute("rotation", { x: 0, y: rotationHotSpot5, z: 0 });
+            document.getElementById("glb2").setAttribute("rotation", { x: 0, y: rotationHotSpot5, z: 0 });
             document.getElementById("glb").removeAttribute("animation");
           }, timerHotSpot5 + 50);
 
@@ -243,6 +248,7 @@ const tapHotspotComponent = {
           });
           setTimeout(() => {
             document.getElementById("verticalRotation").setAttribute("rotation", verticalRotation5 + " 0 0");
+            document.getElementById("verticalRotation2").setAttribute("rotation", verticalRotation5 + " 0 0");
             document.getElementById("verticalRotation").removeAttribute("animation");
           }, timerHotSpot5 + 50);
           woosh_sound();
