@@ -189,7 +189,7 @@ const tapHotspotComponent = {
           });
 
 
-          var rotationHotSpot4 = -30
+          var rotationHotSpot4 = -45
           var timerHotSpot4 = 5000
           document.getElementById("glb").setAttribute("animation", {
             'property': 'rotation',

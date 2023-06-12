@@ -63,7 +63,7 @@ var positionCursor = new THREE.Vector3(0, 0, 0);
 
 var isMuted = false;
 
-var intro1Timer;
+var intro1Timer, worldTimer;
 
 export var finalTimer;
 var timerReturnToVR;
@@ -146,8 +146,7 @@ const onxrextrasloaded = () => {
 window.XRExtras ? onxrextrasloaded() : window.addEventListener('xrextrasloaded', onxrextrasloaded)
 
 $(document).ready(function () {
-
-
+ 
   document.getElementById("video").addEventListener('suspend', () => {
     // suspend invoked
     // show play button
@@ -856,7 +855,7 @@ export function allHotSpotsClicked() {
 export function finalFrame() {
   sfx_background.stop();
 
-
+  clearInterval(worldTimer)
   $("#speech_text").css("display", "none");
   $("#ar_mode_takePhoto_button").css("display", "none");
   $("#polaroidShare").css("display", "none");
@@ -1023,6 +1022,24 @@ export function vibrate() {
 }
 
 function initGlo() {
+
+  var cameraEl = document.querySelector('#camera');
+  var worldPosition = new THREE.Vector3();
+  var worldQuaternion = new THREE.Quaternion();
+  var rotation = new THREE.Euler()
+  scene.emit("recenter");
+  document.getElementById('verticalRotation').setAttribute("position", `0 10 -19`)
+  worldTimer = setInterval(() => {
+    cameraEl.object3D.getWorldPosition(worldPosition);
+    cameraEl.object3D.getWorldQuaternion(worldQuaternion);
+    rotation.setFromQuaternion( worldQuaternion, 'YXZ')
+    var angleRad = rotation.y
+    var x = -(19*Math.sin(angleRad)-worldPosition.x)
+    var z = -(19*Math.cos(Math.abs(angleRad))-worldPosition.z)
+    document.getElementById('verticalRotation').setAttribute("position",{x: x, y: 10, z: z});
+    document.getElementById('verticalRotation').object3D.rotation.y=angleRad
+  }, 25)
+
   console.log("initGlo")
   man.setAttribute("visible", false);
   document.getElementById("video").pause();
@@ -1036,7 +1053,7 @@ function initGlo() {
   document.getElementById("hot_spot4").setAttribute("tap-hotspot", "");
   document.getElementById("hot_spot5").setAttribute("tap-hotspot", "");
   */
-  horizontalRotation.setAttribute("scale", "1 1 1");
+  horizontalRotation.setAttribute("scale", "2 2 2");
 
   glb.setAttribute("animation-mixer", {
     clip: "GHX2_Device_01_ThrowIn",
@@ -1055,7 +1072,6 @@ function initGlo() {
     document.getElementById("hot_spot3").setAttribute("visible", true);
     document.getElementById("hot_spot4").setAttribute("visible", true);
     document.getElementById("hot_spot5").setAttribute("visible", true);
-    horizontalRotation.setAttribute("scale", "1 1 1");
 
     document.getElementById("verticalRotation").setAttribute("animation", {
       'property': 'rotation',
