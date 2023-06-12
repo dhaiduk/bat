@@ -64,6 +64,7 @@ var positionCursor = new THREE.Vector3(0, 0, 0);
 var isMuted = false;
 
 var intro1Timer, worldTimer;
+var requestAnimationFrameTick = false;
 
 export var finalTimer;
 var timerReturnToVR;
@@ -856,6 +857,7 @@ export function finalFrame() {
   sfx_background.stop();
 
   clearInterval(worldTimer)
+  requestAnimationFrameTick = false
   $("#speech_text").css("display", "none");
   $("#ar_mode_takePhoto_button").css("display", "none");
   $("#polaroidShare").css("display", "none");
@@ -1029,17 +1031,24 @@ function initGlo() {
   var rotation = new THREE.Euler()
   scene.emit("recenter");
   document.getElementById('verticalRotation').setAttribute("position", `0 10 -19`)
-  worldTimer = setInterval(() => {
+  requestAnimationFrame(tick);
+ 
+requestAnimationFrameTick =true
+  function tick (){
+    if(!requestAnimationFrameTick) return
+    console.log("tick")
     cameraEl.object3D.getWorldPosition(worldPosition);
     cameraEl.object3D.getWorldQuaternion(worldQuaternion);
     rotation.setFromQuaternion( worldQuaternion, 'YXZ')
-    var angleRad = rotation.y
-    var x = -(19*Math.sin(angleRad)-worldPosition.x)
-    var z = -(19*Math.cos(Math.abs(angleRad))-worldPosition.z)
-    document.getElementById('verticalRotation').setAttribute("position",{x: x, y: 10, z: z});
-    document.getElementById('verticalRotation').object3D.rotation.y=angleRad
-  }, 25)
-
+    var angleYRad = rotation.y
+    var angleXRad = rotation.x
+    var x = -(19*Math.sin(angleYRad)-worldPosition.x)
+    var z = -(19*Math.cos(Math.abs(angleYRad))-worldPosition.z)
+    var y = (19*Math.sin(angleXRad) + worldPosition.y)
+    document.getElementById('verticalRotation').setAttribute("position",{x: x, y: y, z: z});
+    document.getElementById('verticalRotation').object3D.rotation.y=angleYRad
+    requestAnimationFrame(tick);
+  }
   console.log("initGlo")
   man.setAttribute("visible", false);
   document.getElementById("video").pause();
