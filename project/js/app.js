@@ -204,54 +204,21 @@ $(document).ready(function () {
   AFRAME.registerComponent('custom_one_finger_rotate', {
     schema: {
       factor: { default: 6 },
+      verticalRot: { default: 0 },
     },
     init() {
       this.handleEvent = this.handleEvent.bind(this)
-      //this.el.sceneEl.addEventListener('onefingermove', this.handleEvent)
-      this.el.classList.add('cantap')  // Needs "objects: .cantap" attribute on raycaster.
-      this.verticalRot = 0;
-      this.yAxisRot = 0;
-      this.onceTapped = false
+      this.verticalRot = this.data.verticalRot;
     },
     remove() {
       this.el.sceneEl.removeEventListener('onefingermove', this.handleEvent)
     },
     handleEvent(event) {
-      console.log("onefingermove")
-      clearTimeout(finalTimer); console.log("clearTimeout(finalTimer)");
-      this.verticalRot += (event.detail.positionChange.y * this.data.factor) * (180 / Math.PI)
-      if (!this.onceTapped) {
-        var verticalRotation = 0
-        var timerverticalRotation = 500
-        document.getElementById("verticalRotation").setAttribute("animation", {
-          'property': 'rotation',
-          'to': { x: 0, y: verticalRotation, z: 0 }, 'dur': timerverticalRotation
-        });
-        setTimeout(() => {
-          document.getElementById("verticalRotation").setAttribute("rotation", { x: verticalRotation, y: 0, z: 0 });
-          document.getElementById("verticalRotation2").setAttribute("rotation", { x: verticalRotation, y: 0, z: 0 });
-          document.getElementById("verticalRotation").removeAttribute("animation");
-        }, timerverticalRotation + 50);
-
-      }
-      else {document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 });
-            document.getElementById("verticalRotation2").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 });
-          }
-
-
-      //document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 })
-      //document.getElementById("verticalRotation").setAttribute("rotation", { x: this.verticalRot % 360, y: 0, z: 0 })
-      this.el.object3D.rotation.y += (event.detail.positionChange.x * this.data.factor) % (2 * Math.PI)
-      document.getElementById("glb2").object3D.rotation.y += (event.detail.positionChange.x * this.data.factor) % (2 * Math.PI)
-
-      this.onceTapped = true
-
-      console.log((document.getElementById("glb").object3D.rotation.y) * (180 / Math.PI) + " " +
-        (document.getElementById("verticalRotation").object3D.rotation.x) * (180 / Math.PI))
-
+      this.verticalRot = document.getElementById("verticalRotation").object3D.rotation.x+ (event.detail.positionChange.y * this.data.factor) 
+      document.getElementById("verticalRotation").object3D.rotation.x =  this.verticalRot %(2 * Math.PI)
+      this.el.object3D.rotation.y = this.el.object3D.rotation.y + (event.detail.positionChange.x * this.data.factor) % (2 * Math.PI)
     },
     tick: function () {
-      //console.log(document.getElementById("verticalRotation").getAttribute('rotation'))
     },
     qux: function (e) {
       if (e)
@@ -287,9 +254,6 @@ $(document).ready(function () {
       this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y
       this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z
 
-      document.getElementById("glb2").object3D.scale.x = this.scaleFactor * this.initialScale.x
-      document.getElementById("glb2").object3D.scale.y = this.scaleFactor * this.initialScale.y
-      document.getElementById("glb2").object3D.scale.z = this.scaleFactor * this.initialScale.z
     },
     qux: function (e) {
       if (e)
@@ -893,7 +857,6 @@ function startAgain() {
   document.getElementById("video").currentTime = 0;
 
   horizontalRotation.setAttribute("scale", "0.0001 0.0001 0.0001");
-  document.getElementById("glb2").setAttribute("visible", false);
 
   document.getElementById("beginLight").setAttribute("visible", true);
   document.getElementById("orangeLight").setAttribute("visible", false);
@@ -1075,7 +1038,6 @@ requestAnimationFrameTick =true
 
 
   setTimeout(() => {
-    document.getElementById("glb2").setAttribute("visible", true);
     document.getElementById("hot_spot1").setAttribute("visible", true);
     document.getElementById("hot_spot2").setAttribute("visible", true);      
     document.getElementById("hot_spot3").setAttribute("visible", true);
@@ -1086,18 +1048,12 @@ requestAnimationFrameTick =true
       'property': 'rotation',
       'to': { x: 0, y: 0, z: 0 }, 'dur': 400
     });
-    document.getElementById("verticalRotation2").setAttribute("animation", {
-      'property': 'rotation',
-      'to': { x: 0, y: 0, z: 0 }, 'dur': 400
-    });
+
     setTimeout(() => {
       document.getElementById("verticalRotation").setAttribute("rotation", { x: 0, y: 0, z: 0 });
-      document.getElementById("verticalRotation2").setAttribute("rotation", { x: 0, y: 0, z: 0 });
 
       setTimeout(() => {
         document.getElementById("verticalRotation").removeAttribute("animation");
-        document.getElementById("verticalRotation2").removeAttribute("animation");
-
 
         document.getElementById("glb").addEventListener("animation-finished", foo, true)
         document.getElementById("ar_text").removeClass = "ar_text_1";
@@ -1107,15 +1063,10 @@ requestAnimationFrameTick =true
           'property': 'rotation',
           'to': { x: 0, y: -150, z: 0 }, 'dur': 400
         });
-        document.getElementById("glb2").setAttribute("animation", {
-          'property': 'rotation',
-          'to': { x: 0, y: -150, z: 0 }, 'dur': 400
-        });
+
         setTimeout(() => {
           horizontalRotation.setAttribute("rotation", { x: 0, y: -150, z: 0 });
           horizontalRotation.removeAttribute("animation");
-          document.getElementById("glb2").setAttribute("rotation", { x: 0, y: -150, z: 0 });
-          document.getElementById("glb2").removeAttribute("animation");
         }, 500);
 /*
         setTimeout(() => {
