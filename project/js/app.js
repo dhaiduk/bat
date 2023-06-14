@@ -95,9 +95,11 @@ window.addEventListener("pageshow", function (event) {
 var checking8thwallSupport = () => {
   if (!window.XR8.XrDevice.isDeviceBrowserCompatible({ allowedDevices: XR8.XrConfig.device().MOBILE })) {
     document.getElementById("notification_8thwall_not_supported").style.display = "flex"
+    /*
     setTimeout(() => {
       location.href = 'https://www.discoverglo.com/it/it/discover-glo';
     }, 3000);
+    */
   }
 };
 
