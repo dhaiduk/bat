@@ -144,6 +144,13 @@ const method2 = () => {
   })
 }
 const onxrextrasloaded = () => {
+  XRExtras.Loading.showLoading()
+  console.log('customizing loading spinner')
+  const loadImage = document.getElementById("requestingCameraPermissions")
+  
+  if (loadImage) {
+    document.getElementById('requestingCameraPermissions').innerHTML =  'Fai tap per accedere all`esperienza AR'
+  }
   method1()
 }
 window.XRExtras ? onxrextrasloaded() : window.addEventListener('xrextrasloaded', onxrextrasloaded)

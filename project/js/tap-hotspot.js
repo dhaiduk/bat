@@ -178,6 +178,11 @@ const tapHotspotComponent = {
           setTimeout(() => {
             showInfo(4)
           }, 300);
+
+          setTimeout(() => {
+            document.getElementById("info").style.display = "block"
+          }, 7000);
+
           document.getElementById("glb").removeAttribute('animation-mixer')
           document.getElementById("glb").setAttribute('animation-mixer', {
             clip: animationList[2],
