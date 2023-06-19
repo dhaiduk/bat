@@ -69,7 +69,7 @@ var requestAnimationFrameTick = false;
 export var finalTimer;
 var timerReturnToVR;
 
-var currentURL = "https://www.google.com/";
+var currentURL = "https://www.discoverglo.com/it/it/discover-glo";
 
 var sfx_background, sfx_vibro, sfx_woosh;
 var tapToPlaceTimer;
@@ -332,7 +332,7 @@ $(document).ready(function () {
   $("#outro_button_1").click(function () {
     click_sound();
     window.open(
-      "https://www.discoverglo.com/it/",
+      currentURL,
       "_blank" // <- This is what makes it open in a new window.
     );
   });
@@ -342,7 +342,7 @@ $(document).ready(function () {
   $("#find_out_more_bottom").click(function () {
     click_sound();
     window.open(
-      "https://www.discoverglo.com/it/it/discover-glo​",
+      currentURL,
       "_blank" // <- This is what makes it open in a new window.
     );
   })
@@ -1034,7 +1034,7 @@ requestAnimationFrameTick =true
   document.getElementById("hot_spot4").setAttribute("tap-hotspot", "");
   document.getElementById("hot_spot5").setAttribute("tap-hotspot", "");
   */
-  horizontalRotation.setAttribute("scale", "2 2 2");
+  horizontalRotation.setAttribute("scale", "1.5 1.5 1.5");
 
   glb.setAttribute("animation-mixer", {
     clip: "GHX2_Device_01_ThrowIn",
